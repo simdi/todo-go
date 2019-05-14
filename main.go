@@ -6,8 +6,6 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	// "github.com/gorilla/mux"
-
 	todo "github.com/simdi/todo-go/controllers"
 
 	"github.com/go-chi/chi"
@@ -21,7 +19,7 @@ func GetPort() string {
 	// Set a default port if there is nothing in the environment
 	if port == "" {
 		port = "8080"
-		log.Println("No PORT environment variable detected, defaulting to " + port)
+		log.Println(" No PORT environment variable detected, defaulting to " + port)
 	}
 	return ":" + port
 }
