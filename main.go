@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"net/http"
 	"os"
 
+	log "github.com/sirupsen/logrus"
+
 	// "github.com/gorilla/mux"
 
-	todo "github.com/simdi/thesmshub/controllers"
+	todo "github.com/simdi/todo-go/controllers"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -21,7 +21,7 @@ func GetPort() string {
 	// Set a default port if there is nothing in the environment
 	if port == "" {
 		port = "8080"
-		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+		log.Println("No PORT environment variable detected, defaulting to " + port)
 	}
 	return ":" + port
 }
