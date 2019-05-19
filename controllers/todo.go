@@ -5,14 +5,8 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/render"
-	"github.com/simdi/todo-go/utils"
+	"github.com/simdi/todo-go/models"
 )
-
-type Todo struct {
-	ID          string `json: "id"`
-	Title       string `json: "title"`
-	Description string `json: "description`
-}
 
 func Routes() *chi.Mux {
 	router := chi.NewRouter()
@@ -25,9 +19,9 @@ func Routes() *chi.Mux {
 
 // Get a single todo from the DB
 func GetATodo(w http.ResponseWriter, r *http.Request) {
-	utils.ReadFromJSONDB()
+	// utils.ReadFromJSONDB()
 	todoID := chi.URLParam(r, "todoID")
-	todos := Todo{
+	todos := models.Todo{
 		ID:          todoID,
 		Title:       "Hello World",
 		Description: "Hello from Planet Earth",
@@ -48,11 +42,7 @@ func CreateATodo(w http.ResponseWriter, r *http.Request) {
 
 // Get all todos from the DB
 func GetAllTodos(w http.ResponseWriter, r *http.Request) {
-	todoID := chi.URLParam(r, "todoID")
-	todos := Todo{
-		ID:          todoID,
-		Title:       "Hello World",
-		Description: "Hello from Planet Earth",
-	}
+	// todoID := chi.URLParam(r, "todoID")
+	todos := models.DB{}
 	render.JSON(w, r, todos)
 }
